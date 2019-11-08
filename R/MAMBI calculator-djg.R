@@ -6,18 +6,19 @@
 ##                                  The data MUST be in the first tab of the excel file and contain the 
 ##                                  following information with these headings:
 ##
-##                                  StationID - an alpha-numeric identifier of the location 
-##                                  Replicate - a numeric identifying the replicate number of samples taken at the
-##                                              location
-##                                  SampleDate - the date of sample collection
-##                                  Latitude - latitude in decimal degrees
+##                                  StationID - an alpha-numeric identifier of the location (tbl_infaunalabundance_initial)
+##                                  Replicate - a numeric identifying the replicate number of samples taken at the 
+##                                              location (tbl_infaunalabundance_initial)
+##                                  SampleDate - the date of sample collection (tbl_infaunalabundance_initial)
+##                                  Latitude - latitude in decimal degrees (tbl_grabevent)
 ##                                  Longitude - longitude in decimal degrees make sure there is a negative sign 
-##                                              for the Western coordinates
+##                                              for the Western coordinates (tbl_grabevent)
 ##                                  Species - name of the fauna, ideally in SCAMIT ed12 format, do not use sp. or spp.,
 ##                                            use sp only or just the Genus. If no animals were present in the sample
-##                                            use NoOrganismsPresent with 0 abundance
-##                                  Abundance - the number of each Species observed in a sample
-##                                  Salinity - the salinity observed at the location in PSU, ideally at time of sampling
+##                                            use NoOrganismsPresent with 0 abundance (tbl_infaunalabundance_initial "taxon")
+##                                  Abundance - the number of each Species observed in a sample (tbl_infaunalabundance_initial)
+##                                  Salinity - the salinity observed at the location in PSU, ideally at time of sampling 
+##                                            (comes from tbl_stationoccupation)
 ##
 ##          EG_File_Name - A quoted string with the name of the csv file with the suite of US Ecological Groups 
 ##                          assigned initially in Gillett et al. 2015. This EG file has multiple versions of the EG   
