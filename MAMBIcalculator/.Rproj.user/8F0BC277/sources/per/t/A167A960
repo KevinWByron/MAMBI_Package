@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573866097240.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3671098601",
+    "id" : "A167A960",
+    "lastKnownWriteTime" : 1573871190,
+    "last_content_update" : 1573871190,
+    "path" : "P:/PartTimers/JoanaPerdomo/MAMBI_Calculator/MAMBIcalculator/R/benthic_query.R",
+    "project_path" : "R/benthic_query.R",
+    "properties" : {
+        "cursorPosition" : "27,24",
+        "scrollLine" : "14"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

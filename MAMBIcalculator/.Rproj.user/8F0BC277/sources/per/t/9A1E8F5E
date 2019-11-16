@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573866157464.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3199594476",
+    "id" : "9A1E8F5E",
+    "lastKnownWriteTime" : 1573871393,
+    "last_content_update" : 1573871393,
+    "path" : "P:/PartTimers/JoanaPerdomo/MAMBI_Calculator/MAMBIcalculator/R/MAMBI calculator-djg - alt config.R",
+    "project_path" : "R/MAMBI calculator-djg - alt config.R",
+    "properties" : {
+        "cursorPosition" : "215,0",
+        "scrollLine" : "194"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

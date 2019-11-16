@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573852479080.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3929022630",
+    "id" : "806C92B2",
+    "lastKnownWriteTime" : 1573865846,
+    "last_content_update" : 1573865846479,
+    "path" : "C:/Users/GISuser/AppData/Local/Temp/Temp1_MAMBI Calculator 11-14-19.zip/MAMBI calculator-djg - alt config.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "47,0",
+        "scrollLine" : "41"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
