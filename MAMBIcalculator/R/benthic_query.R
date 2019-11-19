@@ -17,10 +17,14 @@ con <- DBI::dbConnect(
 # Bring in our tables from the database
 infauna <- tbl(con, "tbl_infaunalabundance_initial") %>% as_tibble
 
-grab <- tbl(con, "tbl_grabevent") %>% as_tibble
+grab <- tbl(con, "tbl_grabevent") %>%
+  as_tibble %>%
+  dplyr::filter(grabeventnumber == 1)
+
 assignment <- tbl(con, "field_assignment_table") %>%
   as_tibble %>%
   dplyr::filter(stratum == "Bays" | stratum == "Ports" | stratum == "Estuaries" | stratum == "Brackish Estuaries")
+
 station_occupation <- tbl(con, "tbl_stationoccupation") %>%
   as_tibble %>%
   inner_join(assignment, by = 'stationid')
@@ -37,5 +41,5 @@ benthic_data <- grab %>%
 #mutate(EG_Test=ifelse(is.na(EG),"NoEG", "YesEG"))
 
 save(benthic_data, file = "data/benthic_data.RData")
-write.csv(benthic_data, file = "data/benthic_data.csv")
+write.csv(benthic_data, file = "data/benthic_data.csv", row.names = FALSE)
 
