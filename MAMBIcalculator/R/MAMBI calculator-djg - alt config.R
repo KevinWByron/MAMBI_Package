@@ -1,3 +1,26 @@
+#' Compute the multivariate AMBI (M-AMBI) index score.
+#'
+#' @param BenthicData a data set with the following information with these headings:
+#'    \code{StationID} - an alpha-numeric identifier of the location;
+#'    \code{Replicat} - a numeric identifying the replicate number of samples taken at the location;
+#'    \code{SampleDate} - the date of sample collection;
+#'    \code{Latitude} - latitude in decimal degrees;
+#'    \code{Longitude} - longitude in decimal degrees. Make sure there is a negative sign for the Western coordinates;
+#'    \code{Species} - name of the fauna, ideally in SCAMIT ed12 format, do not use sp. or spp.,
+#'        use sp only or just the Genus. If no animals were present in the sample use
+#'        NoOrganismsPresent with 0 abundance;
+#'    \code{Abundance} - the number of each Species observed in a sample;
+#'    \code{Salinity} - the salinity observed at the location in PSU, ideally at time of sampling.
+#' @param EG_File_Name A quoted string with the name of the csv file with the suite of US Ecological Groups assigned
+#'     initially in Gillett et al. 2015. This EG file has multiple versions of the EG values and a Yes/No designation
+#'     if the fauna are Oligochaetes or not. The default file is the Ref - EG Values 2018.csv file included with this
+#'     code. Replace with other files as you see fit, but make sure the file you use is in a similar format and uses
+#'     the same column names. Additionally, new taxa can be added at the bottom of the list with the EG values the user
+#'     feels appropriate, THOUGH THIS IS NOT RECOMMENDED
+#' @param EG_Scheme A quoted string with the name of the EG Scheme to be used in the AMBI scoring. The default is
+#'     Hybrid, though one could use US (all coasts), Standard (Values from Angel Borja and colleagues),
+#'     US_East (US East Coast), US_Gulf (US Gulf of Mexico Coast), or US_West (US West Coast).
+
 ##########################################################################################################################
 ## This is a function to calculate multivariate AMBI (M-AMBI) index scores following Pelletier et al. 2018
 ## which is in turn built upon the work of Sigovini et al. 2013 and Muxica et al. 2007.  This is an alternate version that
@@ -56,8 +79,10 @@ MAMBI.DJG.alt<-function(BenthicData, EG_File_Name="data/Ref - EG Values 2018.csv
   require(readxl)
   source("R/EQR.R")
 
-  Saline_Standards<-read_xlsx("data/Pelletier2018_Standards.xlsx", sheet = "Saline Sites")# Good-Bad Benchmarks following Pelletier et al. 2018
-  TidalFresh_Standards<-read_xlsx("data/Pelletier2018_Standards.xlsx", sheet = "Tidal Fresh Sites") #Good-Bad Benchmarks following Pelletier et al. 2018
+  #Saline_Standards <- saline_standards
+  #TidalFresh_Standards <- tidalFresh_Standards
+  #Saline_Standards<-read_xlsx("data/Pelletier2018_Standards.xlsx", sheet = "Saline Sites")# Good-Bad Benchmarks following Pelletier et al. 2018
+  #TidalFresh_Standards<-read_xlsx("data/Pelletier2018_Standards.xlsx", sheet = "Tidal Fresh Sites") #Good-Bad Benchmarks following Pelletier et al. 2018
 
 Input_File<-BenthicData %>%
   mutate(Species_ended_in_sp=(str_detect(Species," sp$")), Taxon=(str_replace(Species, " sp$",""))) %>%
@@ -67,8 +92,8 @@ Input_File<-BenthicData %>%
                            Salinity>30&Salinity<=40&Coast=="West"~"WEH", Salinity>18&Salinity<=30&Coast=="West"~"WPH"))
 
 
-
-EG_Ref<-read.csv(EG_File_Name, stringsAsFactors = F, na.strings = "") %>% select(.,Taxon, Exclude, EG=EG_Scheme) %>% mutate(EG=(ifelse(Taxon=="Oligochaeta", "V", EG)))
+EG_Ref <- EG_Ref %>% select(.,Taxon, Exclude, EG=EG_Scheme) %>% mutate(EG=(ifelse(Taxon=="Oligochaeta", "V", EG)))
+#EG_Ref<-read.csv(EG_File_Name, stringsAsFactors = F, na.strings = "") %>% select(.,Taxon, Exclude, EG=EG_Scheme) %>% mutate(EG=(ifelse(Taxon=="Oligochaeta", "V", EG)))
 
 
 
@@ -217,6 +242,6 @@ else
 }
 
 # Can run this
-test = MAMBI.DJG.alt(benthic_data, EG_File_Name="data/Ref - EG Values 2018.csv", EG_Scheme="Hybrid")
-write.csv(test, file = "data/output-overall-results.csv")
+#test = MAMBI.DJG.alt(benthic_data, EG_File_Name="data/Ref - EG Values 2018.csv", EG_Scheme="Hybrid")
+#write.csv(test, file = "data/output-overall-results.csv", row.names = FALSE)
 
