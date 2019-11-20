@@ -1,6 +1,6 @@
 #' Compute the multivariate AMBI (M-AMBI) index score.
 #'
-#' @param BenthicData a data set with the following information with these headings:
+#' @param BenthicData a data frame with the following information with these headings:
 #'    \code{StationID} - an alpha-numeric identifier of the location;
 #'    \code{Replicat} - a numeric identifying the replicate number of samples taken at the location;
 #'    \code{SampleDate} - the date of sample collection;
@@ -20,6 +20,9 @@
 #' @param EG_Scheme A quoted string with the name of the EG Scheme to be used in the AMBI scoring. The default is
 #'     Hybrid, though one could use US (all coasts), Standard (Values from Angel Borja and colleagues),
 #'     US_East (US East Coast), US_Gulf (US Gulf of Mexico Coast), or US_West (US West Coast).
+#' @examples
+#' MAMBI.DJG.alt(benthic_data, EG_File_Name="data/Ref - EG Values 2018.csv", EG_Scheme="Hybrid")
+#' MAMBI.DJG.alt(benthic_data, EG_File_Name="data/Ref - EG Values 2018.csv", EG_Scheme="US_Gulf")
 
 ##########################################################################################################################
 ## This is a function to calculate multivariate AMBI (M-AMBI) index scores following Pelletier et al. 2018
