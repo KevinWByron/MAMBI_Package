@@ -106,6 +106,7 @@ MAMBI.DJG <- function(BenthicData, EG_DF = RefEGValues2018, EG_Scheme = "Hybrid"
       dplyr::left_join(., EG_Ref, by = "Taxon") %>% 
       dplyr::left_join(., total.abundance, by = c("StationID", "Replicate", "SampleDate")) %>% 
       dplyr::mutate(Rel_abun = ((Abundance / Tot_abun) * 100))
+    EG.Assignment$EG[EG.Assignment$EG == ""] <- NA
     
     AMBI.applicability <- EG.Assignment %>% 
       dplyr::mutate(EG_Test = ifelse(is.na(EG), "NoEG", "YesEG")) %>% 
